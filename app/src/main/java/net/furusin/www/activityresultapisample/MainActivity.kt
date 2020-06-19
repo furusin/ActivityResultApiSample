@@ -26,6 +26,17 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             startForResult.launch(SubActivity.createIntent(this))
+
+/*
+            // 暗黙的Intentの場合
+            val getContent =
+                registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+                    // do something with returned uri
+                }
+
+            getContent.launch("image/*")
+
+*/
         }
 
     }
