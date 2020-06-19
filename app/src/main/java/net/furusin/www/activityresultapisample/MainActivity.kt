@@ -20,15 +20,9 @@ class MainActivity : AppCompatActivity() {
         binding.navigationButton.setOnClickListener {
             val startForResult =
                 registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult? ->
-                    if (result?.resultCode == Activity.RESULT_OK) {
-                        result.data?.let { data: Intent ->
-                            val value = data.getIntExtra(SubActivity.KEY_VALUE, 0)
-                            Toast.makeText(
-                                this,
-                                "result value = ${data.getIntExtra(SubActivity.KEY_VALUE, 0)}",
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
+                    when (result?.resultCode) {
+                        Activity.RESULT_OK -> {}// do something
+                        else -> {}// do something
                     }
                 }
             startForResult.launch(SubActivity.createIntent(this))
